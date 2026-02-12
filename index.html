@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="aurora">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- <div class="card"></div> -->
+
+<div class="card">
+  <h2 id="title">Login</h2>
+
+  <form id="form">
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="email" id="email" placeholder="Email" required>
+
+    <div class="password-box">
+      <input type="password" id="password" placeholder="Password" required>
+      <span id="togglePass">👁️</span>
+    </div>
+
+    <button type="submit">Continue</button>
+    <p id="message"></p>
+  </form>
+
+  <p class="switch">
+    New here?
+    <span id="toggleBtn">Create account</span>
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
