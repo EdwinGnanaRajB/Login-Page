@@ -7,6 +7,7 @@ const password = document.getElementById("password");
 
 let isLogin = true;
 
+// Toggle Login / Signup
 toggleBtn.onclick = () => {
   isLogin = !isLogin;
   title.textContent = isLogin ? "Login" : "Signup";
@@ -14,10 +15,12 @@ toggleBtn.onclick = () => {
   message.textContent = "";
 };
 
+// Show / Hide password
 togglePass.onclick = () => {
   password.type = password.type === "password" ? "text" : "password";
 };
 
+// Form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -26,18 +29,36 @@ form.addEventListener("submit", (e) => {
   const pass = password.value;
 
   if (isLogin) {
+    // LOGIN
     const user = JSON.parse(localStorage.getItem(email));
+
     if (!user || user.password !== pass) {
-      message.textContent = "Invalid login details ❌";
-      message.style.color = "#ffb3b3";
+      message.textContent = "Invalid login ❌";
+      message.style.color = "red";
     } else {
-      message.textContent = "Welcome back 🔥";
-      message.style.color = "#b6ffb3";
+      // Save session (IMPORTANT FIX)
+      const userData = {
+        username: user.username,
+        email: email
+      };
+
+      localStorage.setItem("loggedUser", JSON.stringify(userData));
+
+      window.location.href = "dashboard.html";
     }
+
   } else {
-    localStorage.setItem(email, JSON.stringify({ username, password: pass }));
-    message.textContent = "Account created successfully ✅";
-    message.style.color = "#b6ffb3";
+    // SIGNUP
+    const userData = {
+      username: username,
+      email: email,
+      password: pass
+    };
+
+    localStorage.setItem(email, JSON.stringify(userData));
+
+    message.textContent = "Signup successful ✅";
+    message.style.color = "green";
   }
 
   form.reset();

@@ -167,3 +167,66 @@ body {
   position: relative;
   z-index: 2;
 }
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #0b0f1a;
+  color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 25px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  transition: 0.3s;
+}
+
+.glow:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #6a5cff;
+}
